@@ -40,3 +40,6 @@ class ExistingListItemForm(ItemForm):
         except ValidationError as exc:
             exc.error_dict = {'text': [DUPLICATE_ITEM_ERROR]}
             self._update_errors(exc)
+
+    def save(self):
+        return forms.models.ModelForm.save(self)
